@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: bonz-im
+  data:
+    mongodb:
+      uri: mongodb://192.168.159.130:27017/testdb
+server:
+  port: 18081
