@@ -27,7 +27,7 @@ public class MessageController {
     public List<Message> queryMessageList(@RequestParam("fromId") Long fromId,
                                           @RequestParam("toId") Long toId,
                                           @RequestParam(value = "page", defaultValue = "1") Integer page,
-                                          @RequestParam(value = "rows", defaultValue = "5") Integer rows) {
+                                          @RequestParam(value = "rows", defaultValue = "15") Integer rows) {
         return messageService.queryMessageList(fromId, toId, page,rows);
     }
 }
