@@ -25,7 +25,7 @@ public class MessageDAOImpl implements MessageDAO {
 
 
     @Override
-    public List<Message> findListByFromAndTo(Long fromId, Long toId, Integer page, Integer rows) {
+    public List<Message> findListByFromAndTo(Long fromId, Long toId, Integer page, Integer rows, Integer... order) {
 
         // user A sends message to user B
         Criteria fromCriteria = new Criteria().andOperator(
@@ -42,6 +42,11 @@ public class MessageDAOImpl implements MessageDAO {
         Criteria criteria = new Criteria().orOperator(fromCriteria, toCriteria);
 
         PageRequest pageRequest = PageRequest.of(page-1, rows, Sort.by(Sort.Direction.ASC, "sendDate"));
+        if (order.length == 1) {
+            if (order[0] == -1) {
+                pageRequest = PageRequest.of(page - 1, rows, Sort.by(Sort.Direction.DESC, "sendDate"));
+            }
+        }
 
         Query query = new Query(criteria).with(pageRequest);
 

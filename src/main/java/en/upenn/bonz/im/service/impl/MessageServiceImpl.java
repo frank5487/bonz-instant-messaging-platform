@@ -15,8 +15,8 @@ public class MessageServiceImpl implements MessageService {
     private MessageDAO messageDAO;
 
     @Override
-    public List<Message> queryMessageList(Long fromId, Long toId, Integer page, Integer rows) {
-        List<Message> list = messageDAO.findListByFromAndTo(fromId, toId, page, rows);
+    public List<Message> queryMessageList(Long fromId, Long toId, Integer page, Integer rows, Integer... order) {
+        List<Message> list = messageDAO.findListByFromAndTo(fromId, toId, page, rows, order);
         for (Message message : list) {
             if (message.getStatus().intValue() == 1) {
                 messageDAO.updateMessageState(message.getId(), 2);

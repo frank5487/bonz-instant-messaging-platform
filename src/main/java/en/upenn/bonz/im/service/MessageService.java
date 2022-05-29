@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface MessageService {
 
-    List<Message> queryMessageList(Long fromId, Long toId, Integer page, Integer rows);
+    List<Message> queryMessageList(Long fromId, Long toId, Integer page, Integer rows, Integer... order);
 
 }

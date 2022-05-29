@@ -40,8 +40,9 @@ public class UserController {
             map.put("username", userEntry.getValue().getUsername());
 
             // TODO: get the last message
+            // query: db.message.find().sort({send_date:-1}).limit(1)
             List<Message> messages = messageService.queryMessageList(fromId,
-                    userEntry.getValue().getId(), 1, 1);
+                    userEntry.getValue().getId(), 1, 1, -1);
 
             if (messages != null && !messages.isEmpty()) {
                 Message message = messages.get(0);

@@ -19,7 +19,7 @@ public interface MessageDAO {
      * @return
      */
     List<Message> findListByFromAndTo(Long fromId, Long toId, Integer page, Integer
-            rows);
+            rows, Integer... order);
 
     /**
      * query message by id
