@@ -45,6 +45,7 @@ The classes managed by the spring
   * Override methods to handle the messages which are registered in the topic and the same group
 * WebSocketConfig
   * register MessageHandler and MessageHandshakeInterceptor into Spring container
+  * enable websocket protocol
 
 ## dao (Mapper)
 * MessageDAO
